@@ -32,35 +32,35 @@
 							<ul>
 								<li><a href="index.html">Home</a></li>
 								<li>
-									<a href="Projects.html">My Games</a>
+									<a href="Projects.html">Games and Projects</a>
 									<ul>
 										<li><a href="Projects.html#AF">Amor Fati</a></li>
+										<li><a href="Projects.html#CG">Lua Scripting</a></li>
+										<li><a href="Projects.html#IG">Idle Gods</a></li>
+										<li><a href="Projects.html#AI">AI and map tool</a></li>
 										<li><a href="Projects.html#RP">Combat System</a></li>
 										<li><a href="Projects.html#SG">Science!</a></li>
 										<li><a href="Projects.html#HM">Hivemind</a></li>
+										<li><a href="Projects.html#KM">Kingmaker</a></li>
 									</ul>
 								</li>
 								<li>
-									<a href="concepts.html">Concepts And Designs</a>
+									<a href="concepts.html">Concepts</a>
 									<ul>
 										<li><a href="concepts.html#ES">Eternal Silence</a></li>
-										<li><a href="concepts.html#PA">Paradigm</a></li>
-										<li><a href="concepts.html#BE">Benefactor</a></li>
-										<li><a href="concepts.html#AL">Philosopher's Family</a></li>
-
+										<li><a href="concepts.html#PS">Philosopher's Blood</a></li>
+										<li><a href="concepts.html#SS">Fires in the Sky</a></li>
 									</ul>
 								</li>
+								<li><a href="Program.html">Programming skills</a></li>
 								<li>
 									<a href="Skills.html">Skills and Education</a>
-									<ul>
-										<li><a href="Skills.html#DES">Design</a></li>		 <!-- level, narrative, mechanics -->
-										<li><a href="Skills.html#PRO">Programming</a></li> <!-- Learning C++. Mostly Unity -->
-									</ul>
 								</li>
 								<li><a href="Contact.html">Contact Me!</a></li>
 							</ul>
 						</nav>
 				</div>
+
 
 			<!-- Main -->
 				<div class="wrapper style1">
@@ -73,23 +73,24 @@
 							<a class="image featured"><img src="images/Amor.png" alt="" /></a>
 							<p>
 								Amor Fati is a 2D puzzle platformer where the main gimmick is that the Player reading through a storybook depicting the events that he will accomplish backwards. 
-								For example, the goal of the first scene of the final level of chapter one involves firing a large boulder at a dragon. From there the player must work backwards, transporting the boulder, covering it with spikes, setting it on a fire and even turning a small pebble into a boulder.
+								For example, the goal of the first scene of the final level of chapter one involves firing a large boulder at a dragon. From there the player must work backwards, setting the boulder on fire, covering it in spikes, soaking it in oil, and pushing a pebble down a hill to grow it into a boulder.
 
 							</p>
 									<h3>Goals and outcomes</h3>
 								<p>
 								Amor Fati was my final, major project I undertook at Qantm College. 
-								While I had worked in smaller teams on smaller projects before, this was my first experience working with artists and designers to conceptualise all aspects of a game project and bring it to life.
-
+								While I had worked in teams on smaller projects before, this was my first experience working with artists and designers to conceptualise all aspects of a game project and bring it to life.
+								As such, challenges in the project came from things like testing and debugging, implementing and animating sprites, and the general process of development and design.
 								</p>
 									<h3>My roles</h3>
 								<p>
 									I joined this group as the Lead Programmer, and while I had help from the other members, I did most of the coding myself. 
 									I also worked with our designers to conceptualise mechanics, levels and puzzles, and discussed concepts and ideas with them.
-									Playmaker was considered, and while I enjoyed trying it out, I ended up finding it was easiest to just code in C#.
+									Most of the challenges involved in the project involved asking designers what they wanted from a scene, planning out the mechanics it would use, then implement them, and finally asking them for feedback on how it works or needs improvement.
 								</p>
 								
-								<p> You can find a <a href ="https://www.youtube.com/watch?v=Olu6PsfM6sw&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=1" /> Trailer for the game here </a> and a <a href ="https://www.youtube.com/watch?v=utWkdRFdugk&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=2" /> video of level one here</a> </p>
+								<p> You can find a <a href ="https://www.youtube.com/watch?v=Olu6PsfM6sw&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=1" /> Trailer for the game here </a> and 
+								a <a href ="https://www.youtube.com/watch?v=utWkdRFdugk&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=2" /> video of level one here</a> </p>
 						</article>
 						<div class="row">
 							<article class="4u 12u(mobile) special">
@@ -102,8 +103,119 @@
 								<a href="images/Amor4.png" class="image featured"><img src="images/amor4.png" alt="" /></a>
 							</article>
 						</div>
+					</div>							
+					
+										<!-- Complex -->	
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2 id="CG">Complex Combat Scripting. </h2>
+							</header>
+							<!-- <a class="image featured"><img src="images/Hivem.png" alt="" /></a> -->
+							<p>
+							I developed this project as a game exploring multiple complex game development aspects using AIE's bootstrap.
+							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but it's main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts.
+							</p>
+									<h3>The Game</h3>
+								<p> In this game, players begin play by scripting out orders for their dark knight, telling it where and when to use its abilities to generate resources and attack its foes, then generating their script and watching the Knight fight with no further input until the battle ends.
+The four enemy types are scripted in the same manner, and work cooperatively to fight the warrior.</p>
+									<h3> Other complex ideas </h3>
+									<p> A major goal of the project was creating a dynamic, featured, turn based RPG system, so it also includes elements like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
+									<p> All art and music used in this project was downloaded from opengameart. </p>
+						</article>
+						<!--
+							<div class="row">
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor.png" class="image featured"><img src="images/Amor.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor.png" class="image featured"><img src="images/amor.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor.png" class="image featured"><img src="images/amor.png" alt="" /></a>
+								</article>
+							</div>
+							-->
+					</div>	
+
+										<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2 id="IG">Idle Gods </h2>
+							</header>
+							<!-- <a class="image featured"><img src="images/Hivem.png" alt="" /></a> -->
+							<p>
+							Idle Gods is the first game I developed solely for mobile, and I designed it as an idle game where eventual death is possible, and the game's goal is survival.						
+							</p>
+									<h3>The Game Loop.</h3>
+									<ul>
+									<li>On the first screen, players can build and assign workers to various buildings and jobs.</li>
+									<li>On the second screen, players can view their workers and assign professions.</li>
+									<li>On the third screen, players spend their blessings, earned from gods by playing the game, to cast spells and upgrade the city.</li>
+									<li>On the final screen, players can buy and trade resources, including civilians.</li>
+									</ul>
+									<p>When the timer hits 0, the game will increment progress, adding/subtracting resources and earning the blessings from deities depending on the player's actions. If resources go over their cap, or the civilians go hungry, discontent with rise and a civilian will eventually quit. </p>
+									<p>Another feature is the night/winter mechanic, where progress halts and the people spend less resources. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
+
+									<h3> Future Development. </h3>
+									<p> The end goal of this project of this game would be something similar to a roguelike, where the difficulty curves and can be prepared for, death is expected, and the lifetime of the village would be a lot smaller than a normal idle game. </p>
+						</article>
+						<!--
+							<div class="row">
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor2.png" class="image featured"><img src="images/Amorl.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor3.png" class="image featured"><img src="images/amorl.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor4.png" class="image featured"><img src="images/amorl.png" alt="" /></a>
+								</article>
+							</div>
+							-->
 					</div>
 
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2 id="AI">Artificial Intelligence and Map Tool.</h2>
+							</header>
+							<a class="image featured"><img src="images/Hivem.png" alt="" /></a>
+							<p>
+								This project was developed in C++ as I learnt how to implement A* Pathfinding.
+								<br />The player’s stated goal is to prevent either of the two AI controlled factions from defeating the other.
+							</p>
+									<h3>The Project</h3>
+								<p> 
+									The project involves AI armies that quickly grow in size and strength, and then form squads to attack enemy buildings.
+									At start of play, each of the four elementals begins by patrolling between their home and mine, collecting resources which slowly create new units.
+									As a unit collects resources, it slowly increases in strength, and upon reaching a high enough point, stations itself near the home and begins recruiting other units to help it move to and attack the enemy.
+									Once a squad is formed, the group travels to the center Tower, which must be captured before they can continue to the enemy bases.								
+									
+								</p>
+									<h3> Mapping Tool </h3>
+									<p> 
+									Perhaps the greatest achievement is its implementation of a Map Editor I made for a completely unrelated project in C#, using winforms.
+									The Map editor is designed to function similarly to RPGMaker's one, with users selecting tile types from a menu and laying them down onto squares.
+									Each tile the user places down also has an index layer, which is exported along with the Image, and is then fed into the A* pathfinding's node map.
+									The end result is a automated movement on a map that does not need to be inputted manually.
+									</p>
+									<p> All art used in this project was downloaded from opengameart. </p>
+						</article>
+							<div class="row">
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor2.png" class="image featured"><img src="images/Amorl.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor3.png" class="image featured"><img src="images/amorl.png" alt="" /></a>
+								</article>
+								<article class="4u 12u(mobile) special">
+									<a href="images/Amor4.png" class="image featured"><img src="images/amorl.png" alt="" /></a>
+								</article>
+							</div>
+					</div>	
+					
+					
 					<!-- Combat -->		
 					<div class="container">		
 						<article id="main" class="special">
@@ -112,7 +224,7 @@
 							</header>
 							<a class="image featured"><img src="images/Combat3.png" alt="" /></a>
 							<p>
-								This project was developed as a solo project during the last 16 years of my Design Degree.
+								This project was developed as a solo project during the last 16 weeks of my Design Degree.
 								The concept was of a simple isometic RPG Combat system where players control four seperate classes, each with their own special abilities.
 							</p>
 									<h3>Classes</h3>
@@ -150,7 +262,7 @@
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h2 id="SG">Science Game</h2>
+								<h2 id="SG">Rock It Science, a Serious Game.</h2>
 							</header>
 							<a class="image featured"><img src="images/science2.png" alt="" /></a>
 							<p>
@@ -181,7 +293,7 @@
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h2 id="HM">Hivemind</h2>
+								<h2 id="HM">Hivemind, my first game developed outside Unity</h2>
 							</header>
 							<a class="image featured"><img src="images/Hive1.png" alt="" /></a>
 							<p>
@@ -195,7 +307,7 @@
 								The chaos comes from the fact that once controlled, the new slaves will also fire when the player does, and will turn back into enemies upon being hit.
 								Furthermore, the main alien dying results in an instant game over.
 								
-								In Swarm mode, the player's goal is to assimilate as many humans as possible. After defeating 10 soldiers, a boss encounter begins where the player must fend against a small, teleporting enemy.
+								In Swarm mode, the player's goal is to assimilate as many humans as possible.
 								In Titan Mode, the player's goal is to control then consume as many enemies as possible. Controlling 5 enemies causes the player to destroy them and 'grow', 
 								increasing its size which in turn increases speed and makes it increasingly difficult to avoid bullets and move around the arena without bouncing off another target!
 
@@ -227,7 +339,7 @@
 					<div class="container">
 						<article id="main" class="special">
 							<header>
-								<h2 id="HM">Kingmaker</h2>
+								<h2 id="KM">Kingmaker</h2>
 							</header>
 							<a class="image featured"><img src="images/pic06.jpg" alt="" /></a>
 							<p>
@@ -301,16 +413,11 @@
 											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 										</ul>
 									</div>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
-
-
 		</div>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
@@ -320,6 +427,5 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
