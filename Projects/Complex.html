@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Colin Butt's Complex Game</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="../stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">My Games</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Games and Projects</a>
+									<ul>
+										<li><a href="Projects.html#AF">Amor Fati</a></li>
+										<li><a href="Projects.html#CG">Lua Scripting</a></li>
+										<li><a href="Projects.html#IG">Idle Gods</a></li>
+										<li><a href="Projects.html#AI">AI and map tool</a></li>
+										<li><a href="Projects.html#RP">Combat System</a></li>
+										<li><a href="Projects.html#SG">Science!</a></li>
+										<li><a href="Projects.html#HM">Hivemind</a></li>
+										<li><a href="Projects.html#KM">Kingmaker</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="concepts.html">Concepts</a>
+									<ul>
+										<li><a href="concepts.html#ES">Eternal Silence</a></li>
+										<li><a href="concepts.html#PS">Philosopher's Blood</a></li>
+										<li><a href="concepts.html#SS">Fires in the Sky</a></li>
+									</ul>
+								</li>
+								<li><a href="Program.html">Programming skills</a></li>
+								<li>
+									<a href="Skills.html">Skills and Education</a>
+								</li>
+								<li><a href="Contact.html">Contact Me!</a></li>
+							</ul>
+						</nav>
+				</div>
+
+
+			<!-- Main -->
+				<div class="wrapper style1">
+										<!-- Complex -->	
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2 id="CG">Complex Combat Scripting. </h2>
+							</header>
+							<a class="image featured"><img src="images/Hivem.png" alt="" /></a>							
+							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/VfuX9NF7hQA" frameborder="0" allowfullscreen></iframe>							
+							
+							<p>
+							I developed this project as a game exploring multiple complex game development aspects using AIE's bootstrap.
+							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but it's main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts, along with other features found in RPGs like like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
+									<p> All art and music used in this project was downloaded from opengameart. </p>
+								
+								<button class="accordion">Design</button>
+								<div class="panel">
+								<p>
+								In this game, players begin play by scripting out orders for their dark knight, telling it when to use its abilities to generate resources and attack its foes, then generating their script and watching the Knight fight with no further input until the battle ends. < br/>
+								The four enemy types are scripted in the same manner, and work cooperatively to fight the warrior.
+								For example, berserkers will use a suicidal charge to kill the player, and will then be revived by the healer.
+								Other characters have taunts, shields, which can impede the player's progress.
+								<br />The player has abilities that counter these attacks, like Knightfall, which damages both a target and their protector if they're shielded, but they must script their knight beforehand if they wish to exploit it.
+								</p>
+								</div>
+								
+								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
+								<div class="panel">
+								<p>
+								The variables in IMGUI are passed into the .lua scripts using simple variables like ints and bools which can be sent back to the scripts that do the work with them in C++.
+								This is an example from an enemy script, where a warrior is checking if it's health is below 30. </p>
+								<code>result = CheckCondition(2, 0, 0, 3, 1). </code>
+								
+								<ol>
+								<li>The first variable is deciding what variable we'll be checking from a pre-determined list. 0 is the player's health, 1 is their souls, 2 is an enemy's health.</li>
+								<li>The second variable is a continuation of the first, determining who to check. 0 only has the unit check itself. 1 has the unit check the player. 2 has the unit check any enemy.</li>
+								<li>The third is a boolean for less or greater than. A 1 would indicate true, asking if greater than.</li>
+								<li>The fourth is the number the number the function will compare itself to. For simplicity's sake, since health is out of 100, it's multiplied by 10 before checking.							
+								<li> The fifth variable is used to specify if any checks involving an individual's health are the player's or the current player taking their turn. A 0 would care about the player, a 1 cares about this individual enemy's health.</li>
+								</ol>								
+								<p>If this function were to return 'nil', the condition fails, and the enemy tries another attack. if the ability succeeded, the game would return a 2, telling the function to end.</p>
+								<p>The function is just like one that could be created by the player, and would be generated in an iteration of a for loop that looks like this: <br />
+								oss << "result = CheckCondition("; <br />
+								oss << player->AbilityChosen[i] << ", "; <br />
+								oss << player->condition[ind] << ", "; <br />
+								oss << player->conditionOperator[ind] << ", "; <br />
+								oss << player->numberComparing[ind] << ", 5)\n"; <br />
+								</p>
+								<p>
+								For the dynamic music system, it's actually quite simple.
+								A function plays at the end of every turn, and it begins by summing the average Life Force of each enemy (Health and Souls, since they'll die at 0 souls or health), then dividing by the number of survivng oponents. Dead enemies are not summed, but the score reeives a penalty for each dead enemy. This number is then compared to the player's remaining health. If the % difference is large enough, the game will determine a side is winning, although it takes a much larger % to change to one state than it does to maintain it, to prevent the system from swapping tracks every time a player or enemy is hurt. </p>
+								<p>
+								As for the music itself, it has been edited into having multiple fade-outs. If the music is ready to be changed, instead of continuing after a fade, the music will fade out completely and be replaced with the fade in of another song.
+								
+								</p>
+								</div>
+
+						</article>
+						<div class="row">
+							<article class="4u 12u(mobile) special">
+								<a href="../images/ComplexBattle1.png" class="image featured"><img src="../images/ComplexBattle1.png" alt="" /></a>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="../images/ComplexBattle2.png" class="image featured"><img src="../images/ComplexBattle2.png" alt="" /></a>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="../images/ComplexBattle2.png" class="image featured"><img src="../images/ComplexBattle2.png" alt="" /></a>
+							</article>
+						</div>
+					</div>							
+		
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+	
+	
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>Have a question about my work? Interested in working on a project?</h3>
+										</header>
+										<p>Then get in touch with me be either using <a href="Contact.html"> My Contact Page</a> </p>
+										<!--
+										or by checking me out on LinkedIn.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+										</ul>
+										-->
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

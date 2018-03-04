@@ -6,12 +6,12 @@
 -->
 <html>
 	<head>
-		<title>Colin Butt's Projects</title>
+		<title>Colin Butt's Love Of Fate</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="../stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="no-sidebar">
 		<div id="page-wrapper">
@@ -78,6 +78,17 @@
 							</p>								
 							<p> You can find a <a href ="https://www.youtube.com/watch?v=Olu6PsfM6sw&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=1" /> Trailer for the game here.</a></p>
 								
+								<button class="accordion" #href= "pro">Programming and developing a compelling narrative.</button>
+								<div class="panel">
+								<p>Most of this project's challenges involved in the project involved asking designers what they wanted from a scene, planning out the mechanics it would use, then implement them, and finally asking them for feedback on how it works or needs improvement.</p>
+								<p>Of all the things we implemented in the game, the most interesting aspect was the narratiion system. The game's storytelling was inspired by Bastion, in that a Narrator would speak as the player progressed, telling the single, linear story in the book..<br />
+								Since the player could run through an area as quickly or slowly as they wanted, this caused a problem. What if a player stops progressing? Should the narrative progress, going onto talking about the events in other scenes? Or if they go too fast, would it skip pieces of dialogue?</p>
+								<p> Neither compromise was appealing, so, much like the triggers that move the player to the start of the previous scene when they exit a level, throughout the levels I placed Triggers with a script that flagged a boolean true once the player walked through them. After the player had, it would check if there was a previous trigger in the scene, and if there was, if it was still active. If neither point was true, the trigger would play it's attached voice clip. At the end of the clip, the trigger would deactivate itself, allowing the next trigger to play when/if it was ready.</p>
+								<p>
+								The end result is a narrative system that follows at the player's pace, and will catch up if the player gives it a chance or needs a hint
+								</p>
+								</div>
+								
 								<button class="accordion">The Design of going backwards</button>
 								<div class="panel">
 								<p>
@@ -87,17 +98,6 @@
 								<p>While my primary role in this project was as a programmer, I also worked with our designers to conceptualise mechanics, levels and puzzles, and discussed concepts and ideas with them.</p>
 								</div>
 								
-								<button class="accordion" #href= "pro">Programming</button>
-								<div class="panel">
-								<p>Most of the challenges involved in the project involved asking designers what they wanted from a scene, planning out the mechanics it would use, then implement them, and finally asking them for feedback on how it works or needs improvement.</p>
-								<p>Of all the things we implemented in the game, the most interesting aspect was likely the narratiion system. The game's narration was inspired by Bastion, in that a Narrator would speak as the player progressed, telling the single, linear story in the book..<br />
-								Since the player could run through an area as quickly or slowly as they wanted, this caused a problem. What if a player stops progressing? Should the narrative progress, going onto talking about the events in other scenes? Or if they go too fast, would it skip pieces of dialogue?</p>
-								<p> Neither compromise was appealing, so, much like the triggers that move the player to the start of the previous scene when they exit a level, throughout the levels I placed Triggers with a script that flagged a boolean true once the player walked through them. After the player had, it would check if there was a previous trigger in the scene, and if there was, if it was still active. If neither point was true, the trigger would play it's attached voice clip. At the end of the clip, the trigger would deactivate itself, allowing the next trigger to play when/if it was ready.</p>
-								<p>
-								The end result is a narrative system that follows at the player's pace, and will catch up if the player gives it a chance or needs a hint
-								</p>
-								</div>
-
 						</article>
 						<div class="row">
 							<article class="4u 12u(mobile) special">
