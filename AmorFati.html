@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Colin Butt's Projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">My Games</a></h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Games and Projects</a>
+									<ul>
+										<li><a href="Projects.html#AF">Amor Fati</a></li>
+										<li><a href="Projects.html#CG">Lua Scripting</a></li>
+										<li><a href="Projects.html#IG">Idle Gods</a></li>
+										<li><a href="Projects.html#AI">AI and map tool</a></li>
+										<li><a href="Projects.html#RP">Combat System</a></li>
+										<li><a href="Projects.html#SG">Science!</a></li>
+										<li><a href="Projects.html#HM">Hivemind</a></li>
+										<li><a href="Projects.html#KM">Kingmaker</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="concepts.html">Concepts</a>
+									<ul>
+										<li><a href="concepts.html#ES">Eternal Silence</a></li>
+										<li><a href="concepts.html#PS">Philosopher's Blood</a></li>
+										<li><a href="concepts.html#SS">Fires in the Sky</a></li>
+									</ul>
+								</li>
+								<li><a href="Program.html">Programming skills</a></li>
+								<li>
+									<a href="Skills.html">Skills and Education</a>
+								</li>
+								<li><a href="Contact.html">Contact Me!</a></li>
+							</ul>
+						</nav>
+				</div>
+
+
+			<!-- Main -->
+				<div class="wrapper style1">
+			<!-- Amor -->				
+					<div class="container">
+						<article id="main" class="special">
+							<header>
+								<h2 id="AF">Amor Fati</h2>
+							</header>
+							<a class="image featured"><img src="images/Amor.png" alt="" /></a>
+							<p>
+							Amor Fati is a 2D puzzle platformer where the main gimmick is that the Player reading through a storybook depicting the events that he will accomplish backwards.
+							It was my final, major project I undertook at Qantm College. <br />						
+							While I had worked in teams on smaller projects before, this was my first experience working with artists and designers bring a game to life.
+							As such, challenges in the project came from things like testing and debugging, implementing and animating sprites, and the general process of development and design.
+							</p>								
+							<p> You can find a <a href ="https://www.youtube.com/watch?v=Olu6PsfM6sw&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=1" /> Trailer for the game here </a> and 
+							a <a href ="https://www.youtube.com/watch?v=utWkdRFdugk&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=2" /> video of level one here</a> </p>
+								
+								<button class="accordion">The Design of going backwards</button>
+								<div class="panel">
+								<p>
+								The idea of Amor Fati took inspiration from the film Memento, where a story being told out of sequence resulted in a captivating mystery. <br />
+								For example, the goal of the first scene of the final level of chapter one involves firing a large boulder at a dragon. From there the player must work backwards, setting the boulder on fire, covering it in spikes, soaking it in oil, and pushing a pebble down a hill to grow it into a boulder.
+								</p>
+								<p>While my primary role in this project was as a programmer, I also worked with our designers to conceptualise mechanics, levels and puzzles, and discussed concepts and ideas with them.</p>
+								</div>
+								
+								<button class="accordion">Programming</button>
+								<div class="panel">
+								<p>Most of the challenges involved in the project involved asking designers what they wanted from a scene, planning out the mechanics it would use, then implement them, and finally asking them for feedback on how it works or needs improvement.</p>
+								<p>Of all the things we implemented in the game, the most interesting aspect was likely the narratiion system. The game's narration was inspired by Bastion, where the narrator reacted to the player's action, but the goal of Amor Fati's narration was to tell the single, linear story from the book.<br />
+								Since the player could run through an area as quickly or slowly as they wanted, this caused a problem. What if a player stops progressing? Should the narrative progress, going onto talking about the events in other scenes? Or if they go too fast, would it skip pieces of dialogue?</p>
+								<p> Neither compromise was appealing, so, much like the triggers that move the player to the start of the previous scene when they exit a level, throughout the levels I placed Triggers with a script that flagged a boolean true once the player walked through them. After the player had, it would check if there was a previous trigger in the scene, and if there was, if it was still active. If neither point was true, the trigger would play it's attached voice clip. At the end of the clip, the trigger would deactivate itself, allowing the next trigger to play when/if it was ready.</p>
+								<p>
+								The end result is a narrative system that follows at the player's pace, and will catch up if the player gives it a chance or needs a hint
+								</p>
+								</div>
+
+						</article>
+						<div class="row">
+							<article class="4u 12u(mobile) special">
+								<a href="images/Amor2.png" class="image featured"><img src="images/Amor2.png" alt="" /></a>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="images/Amor3.png" class="image featured"><img src="images/amor3.png" alt="" /></a>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="images/Amor4.png" class="image featured"><img src="images/amor4.png" alt="" /></a>
+							</article>
+						</div>
+					</div>							
+		
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+	
+	
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>Have a question about my work? Interested in working on a project?</h3>
+										</header>
+										<p>Then get in touch with me be either using <a href="Contact.html"> My Contact Page</a> </p>
+										<!--
+										or by checking me out on LinkedIn.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+										</ul>
+										-->
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
