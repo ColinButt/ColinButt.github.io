@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Colin Butt's Complex Game</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="../stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="no-sidebar">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1 id="logo">Mathtastic Monsters</h1>
+							</header>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li>
+									<a href="Projects.html">Games and Projects</a>
+									<ul>
+										<li><a href="Projects.html#AF">Amor Fati</a></li>
+										<li><a href="Projects.html#CG">Lua Scripting</a></li>
+										<li><a href="Projects.html#IG">Idle Gods</a></li>
+										<li><a href="Projects.html#AI">AI and map tool</a></li>
+										<li><a href="Projects.html#RP">Combat System</a></li>
+										<li><a href="Projects.html#SG">Science!</a></li>
+										<li><a href="Projects.html#HM">Hivemind</a></li>
+										<li><a href="Projects.html#KM">Kingmaker</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="concepts.html">Concepts</a>
+									<ul>
+										<li><a href="concepts.html#ES">Eternal Silence</a></li>
+										<li><a href="concepts.html#PS">Philosopher's Blood</a></li>
+										<li><a href="concepts.html#SS">Fires in the Sky</a></li>
+									</ul>
+								</li>
+								<li><a href="Program.html">Programming skills</a></li>
+								<li>
+									<a href="Skills.html">Skills and Education</a>
+								</li>
+								<li><a href="Contact.html">Contact Me!</a></li>
+							</ul>
+						</nav>
+				</div>
+
+
+			<!-- Main -->
+				<div class="wrapper style1">
+										<!-- Complex -->	
+					<div class="container">
+						<article id="main" class="special">
+							<a class="image featured"><img src="images/Hivem.png" alt="" /></a>							
+							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/E8dk7XLclIM?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+							<p>
+							Mathtasic Monsters is the game I developed during my final year at AIE. It's an Educational RPG built for mobiles and Tablets,  designed to teach primary school students improve on their math skills through gameplay.
+							Note that this page's video is quite special! Instead of being something I recorded and uploaded myself, it was actually submitted by a team member in another group whose child was interested in playing the game. while the child's age was a bit younger than our demographic, it's still an excellent demonstration of the fun and value that can be found in this game!
+							<br />							
+							The team was compromised of six people: 3 Designers, each focussing on Game Design, UI Design, and Sound Design, two artists focussing on creating monster models and backgrounds, and myself the programmer.
+							</p>
+							<p>
+							Because I was the only programmer, my main focus was on building systems that made it easier for Designers to implement their work.
+							UI Art that changed could simply be assigned to public arrays. The cost, ability, texture and requirements of a part could be edited in a prefab.
+							<br />
+							But the best application of this process can be in the game's levels which, while procedural, are built with very strict requirements and variables that are used to determine the difficulty of a question and its answer. 
+							</p>							
+								<button class="accordion" #href= "pro">Programming and Building Procuderal Levels with the click of a button!</button>
+								<div class="panel">								
+										<p>
+										The idea of truly gamifying our mathematics was the game's biggest pull, as while there are many games that give mathematical questions, few games had truly random questions. 
+										
+										After thinking for a while, we eventually ended up with the button as shown in the following image.
+										</p>
+										<img src="../button.png">
+										<p>
+											Any button a player clicks on with this script will start a new level with the monster's stats, number range, answer range, and reward changing depending on variables sst.
+											<br />
+											At the end of each turn, a new question is generated using the following function.
+										</p> 
+										<div style="height:300px;width:900;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">										
+										<pre>
+												//Uses given values to calculate a random sum and its components, then store and display them.
+												internal void makeQuestion(QuizButton a_running, bool phase)
+												{
+													if (calculator == null)
+														calculator = FindObjectOfType<Calculator>();
+
+													if (container == null)
+														container = FindObjectOfType<multipleContainer>();
+
+													int[] numbers = new int[a_running.variableCount];
+													int answer = -2;
+													string oper = "";
+
+													//Randomise as many numbers as required, within range.
+													for (int i = 0; i < a_running.variableCount; i++)
+													{
+														numbers[i] = (int)UnityEngine.Random.Range(a_running.minNumber, (a_running.maxNumber + 1));
+													}
+
+													if(a_running.operator=='x')
+													{
+														//If operator is 'x', second number is one of two possible numbers.
+														numbers[1] = (int)UnityEngine.Random.Range(a_running.secondNumberMin, (a_running.secondNumberMax + 1));
+													}
+													
+													switch (a_running.Operator)
+													{
+														case '+':
+															answer = numbers[0];
+															for (int i = 1; i < a_running.variableCount; i++)
+															{
+																answer += numbers[i];
+																oper = "+ ";
+															}
+															break;
+														case '-':
+															answer = numbers[0];
+															for (int i = 1; i < a_running.variableCount; i++)
+															{
+																answer -= numbers[i];
+																oper = "- ";
+															}
+															break;
+														case 'x':
+														
+															answer = numbers[0] * numbers[1];
+															oper = "x ";
+															break;
+														default:
+															answer = numbers[0];
+															for (int i = 1; i < a_running.variableCount; i++)
+															{
+																answer /= numbers[i];
+																oper = "/ ";
+															}
+															break;
+													}
+
+													bool rounding = a_running.rounding;
+
+													if (a_running.rounding) //if box is ticked, need to make sure numbers don't require rounding up.
+													{
+														rounding = preventRounding(numbers, a_running, answer);
+													}
+
+													//if Answer is too low/too high, or requires rounding to solve, we try again.
+													if (answer <= a_running.minAnswer || answer >= a_running.maxAnswer || rounding)
+													{
+														makeQuestion(a_running, phase);
+														return;
+													}
+
+													string answerNeeded = answer.ToString("F0");
+
+													container.SetMultiple(answer, phase, a_running);
+
+
+													string answerWords;
+
+													answerWords = "   ";
+													answerWords += numbers[0].ToString("F0");
+
+													for (int i = 1; i < a_running.variableCount; i++)
+													{
+														answerWords += "\n" + oper + numbers[i].ToString("F0");
+
+														answer += numbers[i];
+													}
+
+													answerWords += "\n= ";
+													GetComponent<Text>().text = answerWords;
+
+													calculator.answerNeeded = answerNeeded;
+												}</pre>
+											</div>
+										<p>
+											The end result is a system that makes it incredibly easy for Designers to implement, test, and adjust their own questions, all in the editor without needing to change any code.
+										</p> 
+							</div>								
+
+								<button class="accordion">My Design Experience.</button>
+								<div class="panel">
+
+								<h3> Boss Design </h3>
+								
+								<h3> The Endless Arena.</h3>
+								<p>
+								But while the questions and boss fights made the game enjoyable and compelling in their own right, I felt the game had one flaw: It was lacking replay value. <br />
+								This is because while the questions were generated randomly, the actual level progression was linear. So while the player could experience new questions if they replayed them, they likely wouldn't after their first run. <br />
+								To combat this, I designed and built the endless Mode, a competitive gauntlet that takes inspiration from both modern roguelikes and the Battle Arena in Final Fantasy VII,
+								</p>
+								<p>
+								During this mode, players fight monsters until they surrender or lose. When a monster dies, the player’s stats are reset to full, and there is a brief rest period where three boxes appear. Selecting a box will add a penalty/boost to either the player or their opponents, and increase/decrease the their scoring modifier, relative to how easy/hard the selected boss will affect difficulty.
+								</p>
+								<p>
+								The gametype also caters to players of multiple playstyles, as those who want an easier, longer, experience can judge themselves based off progression, whereas those who prefer harder, shorter, sessions can try for the maximum score. <br />
+								If introduced to a classroom setting, this would allow students to compete for the best scores, giving them further incentive to play a game teaching them about math.
+								</p>
+								</div>
+
+								
+						</article>
+						<div class="row">
+							<article class="4u 12u(mobile) special">
+							</article>
+							<article class="4u 12u(mobile) special">
+								<!--<a href="../images/ComplexBattle2.png" class="image featured"><img src="../images/AIStates.png" alt="" /></a> -->
+							</article>
+							<article class="4u 12u(mobile) special">
+							</article>
+						</div>
+					</div>							
+		
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+	
+	
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="12u">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>Have a question about my work? Interested in working on a project?</h3>
+										</header>
+										<p>Then get in touch with me be either using <a href="Contact.html"> My Contact Page</a> </p>
+										<!--
+										or by checking me out on LinkedIn.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+										</ul>
+										-->
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.onvisible.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>

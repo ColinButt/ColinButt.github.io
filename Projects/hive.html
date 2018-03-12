@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Colin Butt's Complex Game</title>
+		<title>Colin Butt's Hivemind</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,7 +23,7 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.html" id="logo">My Games</a></h1>
+								<h1>Hivemind-The first game I developed in C++.<h1>
 							</header>
 						</div>
 
@@ -67,55 +67,46 @@
 										<!-- Complex -->	
 					<div class="container">
 						<article id="main" class="special">
-							<header>
-								<h2 id="CG">Complex Combat Scripting. </h2>
-							</header>
 							<a class="image featured"><img src="images/Hivem.png" alt="" /></a>							
-							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/VfuX9NF7hQA" frameborder="0" allowfullscreen></iframe>							
-							
+							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/ocNjZ8319h4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>							
 							<p>
-							I developed this project as a game exploring multiple complex game development aspects using AIE's bootstrap.
-							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but it's main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts, along with other features found in RPGs like like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
+							Hivemind is a 2D shooter where you play as an Alien attempting to assimilate and consume human soldiers and turn them into mindless slaves.
+
+							Goals and outcomes
+							Hivemind was the first Game I wrote in C++ using Microsoft Visual Studio. The process first began with the building of a Maths library which included classes for Vectors and Matrix 2,3 and 4, which include basic functions such as addition, multiplications and more specific such as Translation, Rotation or scale then using the library and a provided AIE library to build a 2D game of my choice which included these elements. The process also involved learning about programming concepts such as collision or heirarchies, which I had made use of in unity but never truly understood.
+							</p>
 									<p> All art and music used in this project was downloaded from opengameart. </p>
 								
 								<button class="accordion">Design</button>
 								<div class="panel">
 								<p>
-								In this game, players begin play by scripting out orders for their dark knight, telling it when to use its abilities to generate resources and attack its foes, then generating their script and watching the Knight fight with no further input until the battle ends. < br/>
-								The four enemy types are scripted in the same manner, and work cooperatively to fight the warrior.
-								For example, berserkers will use a suicidal charge to kill the player, and will then be revived by the healer.
-								Other characters have taunts, shields, which can impede the player's progress.
-								<br />The player has abilities that counter these attacks, like Knightfall, which damages both a target and their protector if they're shielded, but they must script their knight beforehand if they wish to exploit it.
+							While the focus of the game was learning C++ programming, the design goal of this game was Chaos. While balance passes were made to make the game 'fun', the game's concept and goal was to make a game as chaotic as possible, within reason. While there is a manual mode, by default, the player's character will automatically fire bullets that allow them to take control of an enemy on impact. The chaos comes from the fact that once controlled, the new slaves will also fire when the player does, and will turn back into enemies upon being hit by any projectile. Furthermore, the main alien dying results in an instant game over. <br /> 
+							In Swarm mode, the player's goal is to assimilate as many humans as possible. 
+							<br/> In Titan Mode, the player's goal is to control then consume as many enemies as possible. Controlling 5 enemies causes the player to destroy them and 'grow', increasing its size which in turn increases speed and makes it increasingly difficult to avoid bullets and move around the arena without bouncing off another target!
 								</p>
 								</div>
 								
-								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
+								<button class="accordion" #href= "pro">Programming - Developing a Library.</button>
 								<div class="panel">
 								<p>
-								The variables in IMGUI are passed into the .lua scripts using simple variables like ints and bools which can be sent back to the scripts that do the work with them in C++.
-								This is an example from an enemy script, where a warrior is checking if it's health is below 30. </p>
-								<code>result = CheckCondition(2, 0, 0, 3, 1). </code>
-								
-								<ol>
-								<li>The first variable is deciding what variable we'll be checking from a pre-determined list. 0 is the player's health, 1 is their souls, 2 is an enemy's health.</li>
-								<li>The second variable is a continuation of the first, determining who to check. 0 only has the unit check itself. 1 has the unit check the player. 2 has the unit check any enemy.</li>
-								<li>The third is a boolean for less or greater than. A 1 would indicate true, asking if greater than.</li>
-								<li>The fourth is the number the number the function will compare itself to. For simplicity's sake, since health is out of 100, it's multiplied by 10 before checking.							
-								<li> The fifth variable is used to specify if any checks involving an individual's health are the player's or the current player taking their turn. A 0 would care about the player, a 1 cares about this individual enemy's health.</li>
-								</ol>								
-								<p>If this function were to return 'nil', the condition fails, and the enemy tries another attack. if the ability succeeded, the game would return a 2, telling the function to end.</p>
-								<p>The function is just like one that could be created by the player, and would be generated in an iteration of a for loop that looks like this: <br />
-								oss << "result = CheckCondition("; <br />
-								oss << player->AbilityChosen[i] << ", "; <br />
-								oss << player->condition[ind] << ", "; <br />
-								oss << player->conditionOperator[ind] << ", "; <br />
-								oss << player->numberComparing[ind] << ", 5)\n"; <br />
+								I built this game over the course of an AIE class called Maths For Games. <br />
 								</p>
-								<p>
-								For the dynamic music system, it's actually quite simple.
-								A function plays at the end of every turn, and it begins by summing the average Life Force of each enemy (Health and Souls, since they'll die at 0 souls or health), then dividing by the number of survivng oponents. Dead enemies are not summed, but the score reeives a penalty for each dead enemy. This number is then compared to the player's remaining health. If the % difference is large enough, the game will determine a side is winning, although it takes a much larger % to change to one state than it does to maintain it, to prevent the system from swapping tracks every time a player or enemy is hurt. </p>
-								<p>
-								As for the music itself, it has been edited into having multiple fade-outs. If the music is ready to be changed, instead of continuing after a fade, the music will fade out completely and be replaced with the fade in of another song.
+								<h1> Unfinished, please edit.</h1>
+							<p>
+Students work through creating a basic math library to fully understanding the formulae needed to manipulate the
+Vectors and Matrices used within all games. This library is created as a library that can be redistributed and used within
+other applications. To ensure the mathematical formulae are correct the maths library will be tested with a Unit Testing
+application to ensure that the output is correct.
+Students will also explore basic collision detection techniques used in video games to determine when objects come in
+to contact with each other and various other needs
+
+First Experience with collision.
+Experience with bouncing, and velocity were rudimentary, so collisions are basic, but good enough for the project.
+
+When a character hits a wall, it's velocity is simply multiplied by -1, and walls are simply defined by screen size, not actual obstacles.
+			
+								</p>
+								
 								
 								</p>
 								</div>

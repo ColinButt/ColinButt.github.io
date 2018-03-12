@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Colin Butt's Love Of Fate.</title>
+		<title>Colin Butt's Idle Gods</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,7 +23,7 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.html" id="logo">Amor Fati</a></h1>
+								<h1><a href="index.html" id="logo">Idle Gods</a></h1>
 							</header>
 						</div>
 
@@ -64,47 +64,62 @@
 
 			<!-- Main -->
 				<div class="wrapper style1">
-			<!-- Amor -->				
+										<!-- Complex -->	
 					<div class="container">
 						<article id="main" class="special">
-							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/utWkdRFdugk?rel=0" frameborder="0" allowfullscreen></iframe>
+							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/O8NPYI0uEL4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							
 							<p>
-							Amor Fati is a 2D puzzle platformer where the main gimmick is that the Player reading through a storybook depicting the events that he will accomplish backwards.
-							It was my final, major project I undertook at Qantm College. <br />						
-							While I had worked in teams on smaller projects before, this was my first experience working with artists and designers to bring a game to life. As such, challenges in the project came from things like testing and debugging, implementing and animating sprites, and the general process of growing a game from a prototype into a fleshed out game.
-							</p>								
-							<p> You can find a <a href ="https://www.youtube.com/watch?v=Olu6PsfM6sw&list=PL3EMWJ_G3VP64B2Jvgr-SSB3t_zAoduDi&index=1" /> Trailer for the game here.</a></p>
+							Idle Gods is the first game I developed solely for mobile, and I designed it as an idle game where eventual death is possible, and the game's goal is survival.
+							</p>
+							Like any Idle game, the player's focus is resource management. Even when the game isn't playing, a timer constantly counts down. When it hits 0, the game increments progress, adding and reducing resources. If resources run out or go over their cap, discontent with rise and a civilian will eventually quit. </p>
+							<p>To combat this, the game's signature feature is the night/winter mechanic, where progress halts and the people spend less resources at night. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
 								
-								<button class="accordion" #href= "pro">Programming and pacing the narrative.</button>
+								<button class="accordion">Design</button>
 								<div class="panel">
-								<p>Most of this project's challenges involved in the project involved asking designers what they wanted from a scene, planning out the mechanics it would use, then implement them, and finally asking them for feedback on how it works or needs improvement.</p>
-								<p>Of all the things we implemented in the game, the most interesting aspect was the narratiion system. The game's storytelling was inspired by Bastion, in that a Narrator would speak as the player progressed, telling the single, linear story in the book..<br />
-								Since the player could run through an area as quickly or slowly as they wanted, this caused a problem. What if a player stops progressing? Should the narrative progress, going onto talking about the events in other scenes? Or if they go too fast, would it skip pieces of dialogue?</p>
-								<p> Neither compromise was appealing, so, much like the triggers that move the player to the start of the previous scene when they exit a level, throughout the levels I placed Triggers with a script that flagged a boolean true once the player walked through them. After the player had, it would check if there was a previous trigger in the scene, and if there was, if it was still active. If neither point was true, the trigger would play it's attached voice clip. At the end of the clip, the trigger would deactivate itself, allowing the next trigger to play when/if it was ready.</p>
-								<p>
-								The end result is a narrative system that follows at the player's pace, and will catch up if the player gives it a chance or needs a hint.
-								</p>
+									<h3>UI Design and Future Ideas</h3>
+									<ul>
+									<li>⦁	On the first screen, players can build and assign workers to various buildings and jobs.</li>
+									<li>⦁	On the second screen, players can view their workers and assign professions.</li>
+									<li>⦁	On the third screen, players spend their blessings, earned from gods by playing the game, to cast spells and upgrade the city.</li>
+									<li>⦁	On the final screen, players can buy and trade resources, including civilians.</li>
+									</ul>
+									<h3> Future Development. </h3>
+									<p> The end goal of this project of this game would be something similar to a roguelike, where the difficulty curves can be prepared for, death is expected, and the lifetime of the village would be a lot smaller than a normal idle game. <br />
+									Perks like divine blessings would carry over to incentivise continued play.</p>				
 								</div>
 								
-								<button class="accordion">The Design of going backwards</button>
+								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
 								<div class="panel">
-								<p>
-								The idea of Amor Fati took inspiration from the film Memento, where a story being told out of sequence resulted in a captivating mystery. <br />
-								For example, the goal of the first scene of the final level of chapter one involves firing a large boulder at a dragon. From there the player must work backwards, setting the boulder on fire, covering it in spikes, soaking it in oil, and pushing a pebble down a hill to grow it into a boulder.
+								<p>The tick function is the most important part of the game, as it updates everything in the civilisation, from the workers to the gods and the marketplace. <br />
+								It begins by cycling through every villager, reducing their fatigue and food if they're resting, or increasing their fatigue and possibly causing them to take a break if they're working.
+								The function then cycles through each building, causing them to generate resources, upgrade, and increase discontent if they're empty.
 								</p>
-								<p>While my primary role in this project was as a programmer, I also worked with our designers to conceptualise mechanics, levels and puzzles, and discussed concepts and ideas with them.</p>
-								</div>
 								
+								<p>While coding a function like this, care must be taken to ensure the functions Big 0 Notation does not go over N2. </p>
+								
+								<h3> Saving Data between sessions.</h3>
+								The process of saving an idle game is a bit difficult when using unity. <br />
+								When the player hits the quit button, void OnApplicationQuit() plays, saving the game then closing it.<br />
+								But if the player minimises or closes the game without shutting down, OnApplicationPause(bool pause), plays.
+								If pause is true, the player has closed the game, calling for a cave.
+								If pause is false, the player is returning, and the only part of the game that needs to reload is the timer.
+								<h3> Calculating progress when resuming play </h3>
+								When the player returns to the game, it must calculate how long the player was gone. It does so by taking the clock's current time, and subtracts it from the time when the player left.
+								The time is then converted from hours to minutes.
+								If the time the player was gone is greater than 15 minutes, the tick function plays, 
+								</div>
+
 						</article>
 						<div class="row">
 							<article class="4u 12u(mobile) special">
-								<a href="images/Amor2.png" class="image featured"><img src="images/Amor2.png" alt="" /></a>
+								<a href="../images/Idle.png" class="image featured"><img src="../images/Idle.png" alt="" /></a>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="images/Amor3.png" class="image featured"><img src="images/amor3.png" alt="" /></a>
+								<a href="../images/Idle1.png" class="image featured"><img src="../images/Idle1.png" alt="" /></a>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="images/Amor4.png" class="image featured"><img src="images/amor4.png" alt="" /></a>
+								<a href="../images/Idle2.png" class="image featured"><img src="../images/Idle2.png" alt="" /></a>
 							</article>
 						</div>
 					</div>							
