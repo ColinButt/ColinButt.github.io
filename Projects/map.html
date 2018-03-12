@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Colin Butt's Complex Game</title>
+		<title>Colin Butt's Artifical Army</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,7 +23,7 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.html" id="logo">My Games</a></h1>
+								<h1><a href="index.html" id="logo">My Artificial Intelligence Project</a></h1>
 							</header>
 						</div>
 
@@ -67,18 +67,29 @@
 										<!-- Complex -->	
 					<div class="container">
 						<article id="main" class="special">
-							<header>
-								<h2 id="CG">Complex Combat Scripting. </h2>
-							</header>
 							<a class="image featured"><img src="images/Hivem.png" alt="" /></a>							
 							<iframe class =" image featured" width="560" height="515" src="https://www.youtube.com/embed/VfuX9NF7hQA" frameborder="0" allowfullscreen></iframe>							
 							
 							<p>
-							I developed this project as a game exploring multiple complex game development aspects using AIE's bootstrap.
-							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but it's main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts, along with other features found in RPGs like like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
-									<p> All art and music used in this project was downloaded from opengameart. </p>
-															
-								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
+								This project was developed in C++ as I learnt how to implement A* Pathfinding.
+								<br />The player’s stated goal is to use abilities to prevent either of the two AI controlled factions from defeating the other.
+							</p>
+									<h3>The Project</h3>
+								<p> 
+									The project involves AI armies that quickly grow in size and strength, and then form squads to attack enemy buildings.
+									Each of the four armies begins by having its elemental patrol between their base and well, collecting resources to create new units.
+									As they do so, they'll also grow in strength and move to assault the enemy bases. <br />
+									For more information on this process, please read the accordian tab named State Machines.
+								</p>
+									<h3> Mapping Tool </h3>
+									<p> 
+									The greatest achievement in this project is the implementation of a Map Editor I made for a completely unrelated project in C#, using winforms.
+									The Map editor is designed to function similarly to RPGMaker's one, with users selecting tile types from a menu and laying them down onto squares.
+									Each tile the user places down also has an index layer, which is exported along with the Image, and is then fed into the A* pathfinding's node map.
+									</p>
+									<p> All art used in this project was downloaded from opengameart. </p>
+									
+								<button class="accordion" #href= "pro">Combining this game, built in C++, with a map tool, built in C#</button>
 								<div class="panel">
 								<p>
 								The map tool was initially envisioned to create maps similar to ones seen in RPGs like Fire emblem, or in RPGMaker maps.
@@ -87,6 +98,8 @@
 								1 0 1 0 0 0 1 1 1 1 <br />
 								0 1 1 1 1 0 0 0 0 1 <br />
 								, etc. <br />		
+								</p>
+								<p>
 								In the game I made, if a tag was 0, a space was empty and impassable. If a tag was 1, the space could be moved on freely. 2s and above could also be used to make forests that impede movement or the like.
 								So when the png is loaded in as the map, the table is also read in using a filestream, writing the numbers into an array of ints.
 								The code then runs a for loop through the rows and columns of the table, removing the ability for agents to enter nodes which have a tag of less than 1.
@@ -104,12 +117,14 @@
 									}
 								}
 								since the array taken from the text file, textVariables, is one-dimensional, inc is used to progress through it.
+								</p>
+								<p>
 								This gives the project the potential for more maps to be built, implemented, loaded in and set up without needing to heavily alter the code.
 								
 								</p>
 								</div>
 
-																<button class="accordion">State machines</button>
+								<button class="accordion">State machines</button>
 								<div class="panel">
 								<p>
 								The development and implementation of state-based AI was the primary focus of this project. To accomplish this and the game's goals, the agents have been given five states.
