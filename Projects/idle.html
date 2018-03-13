@@ -73,7 +73,7 @@
 							Idle Gods is the first game I developed solely for mobile, and I designed it as an idle game where eventual death is possible, and the game's goal is survival.
 							</p>
 							Like any Idle game, the player's focus is resource management. Even when the game isn't playing, a timer constantly counts down. When it hits 0, the game increments progress, adding and reducing resources. If resources run out or go over their cap, discontent with rise and a civilian will eventually quit. </p>
-							<p>To combat this, the game's signature feature is the night/winter mechanic, where progress halts and the people spend less resources at night. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
+							<p>To make it easier for players, the game's signature mechanic is the winter mechanic, where progress halts and the people spend less resources. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
 								
 								<button class="accordion">Design</button>
 								<div class="panel">
@@ -89,14 +89,13 @@
 									Perks like divine blessings would carry over to incentivise continued play.</p>				
 								</div>
 								
-								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
+								<button class="accordion" #href= "pro">Programming Ticking, Saving and Progressing.</button>
 								<div class="panel">
 								<p>The tick function is the most important part of the game, as it updates everything in the civilisation, from the workers to the gods and the marketplace. <br />
 								It begins by cycling through every villager, reducing their fatigue and food if they're resting, or increasing their fatigue and possibly causing them to take a break if they're working.
 								The function then cycles through each building, causing them to generate resources, upgrade, and increase discontent if they're empty.
-								</p>
-								
-								<p>While coding a function like this, care must be taken to ensure the functions Big 0 Notation does not go over N2. </p>
+								<br/>								
+								While coding a function like this, care must be taken to ensure the functions Big 0 Notation does not go over N2, as the function can play dozens of times when the player returns from a break. </p>
 								
 								<h3> Saving Data between sessions.</h3>
 								The process of saving an idle game is a bit difficult when using unity. <br />
@@ -104,10 +103,10 @@
 								But if the player minimises or closes the game without shutting down, OnApplicationPause(bool pause), plays.
 								If pause is true, the player has closed the game, calling for a cave.
 								If pause is false, the player is returning, and the only part of the game that needs to reload is the timer.
-								<h3> Calculating progress when resuming play </h3>
-								When the player returns to the game, it must calculate how long the player was gone. It does so by taking the clock's current time, and subtracts it from the time when the player left.
-								The time is then converted from hours to minutes.
-								If the time the player was gone is greater than 15 minutes, the tick function plays, 
+								<h3> Calculating Away progress when resuming play </h3>
+								When the player returns to the game, it must calculate how long the player was gone. <br /> 
+								It does so by first taking the clock's current time, and subtracts it from the time when the player left. The time is then converted from hours and minutes to just minutes.
+								If the time the player was gone is greater than 15 minutes, the tick function runs, and the time the player was absent is decreased, and then the check is repeated until the timer goes under 15 minutes. When it does so, any remaining time is added to where the timer was at when the game stopped, and the game can begin.
 								</div>
 
 						</article>
