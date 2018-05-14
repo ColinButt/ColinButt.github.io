@@ -57,8 +57,8 @@
 							<p>
 							Idle Gods is the first game I developed solely for mobile, and I designed it as an idle game where eventual death is possible, and the game's goal is survival.
 							</p>
-							Like any Idle game, the player's focus is resource management. Even when the game isn't playing, a timer constantly counts down. When it hits 0, the game increments progress, adding and reducing resources. If resources run out or go over their cap, discontent with rise and a civilian will eventually quit. </p>
-							<p>To make it easier for players, the game's signature mechanic is the winter mechanic, where progress halts and the people spend less resources. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
+							Like any Idle game, the player's focus is on managing their resources. Even when the game isn't playing, a timer constantly counts down. When it hits 0, the game increments progress, adding and reducing resources. If resources run out or go over their cap, discontent will rise and a civilian will eventually quit. </p>
+							<p>To make it easier for players, the game's signature mechanic is the winter mechanic, where progress halts and the people spend fewer resources. This balances the player's need to check the game during the day by giving them a rest period where they are in no danger of damaging their civilisation.</p>
 								
 								<button class="accordion">Design</button>
 								<div class="panel">
@@ -86,8 +86,8 @@
 								The process of saving an idle game is a bit difficult when using unity. <br />
 								When the player hits the quit button, void OnApplicationQuit() plays, saving the game then closing it.<br />
 								But if the player minimises or closes the game without shutting down, OnApplicationPause(bool pause), plays.
-								If pause is true, the player has closed the game, calling for a cave.
-								If pause is false, the player is returning, and the only part of the game that needs to reload is the timer.
+								If Pause is true, the player has closed the game, calling for a save.
+								If Pause is false, the player is returning, and the only part of the game that needs to reload is the timer.
 								<h3> Calculating Away progress when resuming play </h3>
 								When the player returns to the game, it must calculate how long the player was gone. <br /> 
 								It does so by first taking the clock's current time, and subtracts it from the time when the player left. The time is then converted from hours and minutes to just minutes.

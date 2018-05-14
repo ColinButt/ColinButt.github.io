@@ -64,12 +64,12 @@
 									The project involves AI armies that quickly grow in size and strength, and then form squads to attack enemy buildings.
 									Each of the four armies begins by having its elemental patrol between their base and well, collecting resources to create new units.
 									As they do so, they'll also grow in strength and move to assault the enemy bases. <br />
-									For more information on this process, please read the accordian tab named State Machines.
+									For more information on this process, please read the accordion tab named State Machines.
 								</p>
 									<h3> Mapping Tool </h3>
 									<p> 
-									The greatest achievement in this project is the implementation of a Map Editor I made for a completely unrelated project in C#, using winforms.
-									The Map editor is designed to function similarly to RPGMaker's one, with users selecting tile types from a menu and laying them down onto squares.
+									The greatest achievement in this project is the implementation of a Map Editor I made for a completely unrelated project in C#, using WinForms.
+									The Map editor is designed to function similarly to RPGMaker's one, with users selecting tile types from a menu and laying them onto squares.
 									Each tile the user places down also has an index layer, which is exported along with the Image, and is then fed into the A* pathfinding's node map.
 									</p>
 									<p> All art used in this project was downloaded from opengameart. </p>
@@ -77,15 +77,15 @@
 								<button class="accordion" #href= "pro">Combining this game, built in C++, with a map tool, built in C#</button>
 								<div class="panel">
 								<p>
-								The map tool was initially envisioned to create maps similar to ones seen in RPGs like Fire emblem, or in RPGMaker maps.
-								Tiles are copy and pasted from a list onto the table, and their information has space for an optional name and tag. The tag is actually considered the most important part, as this is what is used agents traverse the terrain.<br />
+								The map tool was initially envisioned to create maps similar to ones seen in RPGs like Fire Emblem, or in RPGMaker maps.
+								Tiles are copied and pasted from a list onto the table, and their information has space for an optional name and tag. The tag is actually considered the most important part, as this is what is actually used by the agents to traverse the terrain.<br />
 								When the map is completed, the users export the map as a single png image. When this is done, a text file containing the tag numbers of every tile in the map is also exported with the same name as the map. This is just a large table of something like:<br />
 								1 0 1 0 0 0 1 1 1 1 <br />
 								0 1 1 1 1 0 0 0 0 1 <br />
 								, etc. <br />		
 								</p>
 								<p>
-								In the game I made, if a tag was 0, a space was empty and impassable. If a tag was 1, the space could be moved on freely. 2s and above could also be used to make forests that impede movement or the like.
+								In the game I made, if a tile has a tag of 0, the tile is impassable. If a tag was 1, the space could be moved on freely. 2s and above could also be used to make forests that impede movement or the like.
 								So when the png is loaded in as the map, the table is also read in using a filestream, writing the numbers into an array of ints.
 								The code then runs a for loop through the rows and columns of the table, removing the ability for agents to enter nodes which have a tag of less than 1.
 								The code looks like this: <br />								
@@ -115,8 +115,8 @@
 								The development and implementation of state-based AI was the primary focus of this project. To accomplish this and the game's goals, the agents have been given five states.
 								</p>
 								<p>
-								In the gather state, agents run between the gather point and the well, creating new allies and growing stronger as they do so.
-								If the unit is attacked, it will retreat to the well and enter garrision state until it is safe.
+								In the gather state, agents run between the gathering point and the well, creating new allies and growing stronger as they do so.
+								If the unit is attacked, it will retreat to the well and enter garrison state until it is safe.
 								If it reaches a high enough level, it will enter the Attack state.
 								</p>							
 								<p>

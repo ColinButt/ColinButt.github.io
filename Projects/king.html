@@ -57,7 +57,7 @@
 							Kingmaker is a 2D tactical strategy where the player controls an army of animals fighting to help the lion cub gain domination!							
 							While the game is laid out like a chessboard, in many ways it is more similar to an SRPG.<br />
 							All pieces have a health bar. A piece, even if attacked, does not die until this hits 0. <br />
-							All pieces have attack and defence values. These numbers determine damage dealt to and taken by other pieces. <br />
+							All pieces have attack and defence values. These numbers determine the damage dealt to and taken by other pieces. <br />
 							All pieces have an energy counter. When a counter hits the max level, the piece can act. Performing actions lowers this bar.
 							</p>
 							The goal of this project was to make a small game while learning a simple, open source C++ games library. <br />
@@ -70,24 +70,24 @@
 								</p>
 								<ul> 
 								<li>The Cub represents the king, and it will cause the player to win the game if it lands on the opposing side's back row. It can also resurrect dead allies. </li>
-								<li> The deadly Lioness protects her cub by dashing throwing herself into the enemy frontline. </li>
+								<li>The deadly Lioness protects her cub by dashing throwing herself into the enemy frontline. </li>
 								<li>The turtle protects its allies by summoning green shells.</li>
-								<li>Elephants heals weakened allies by spraying water over them.</li>
-								<li> Giraffes can hit enemies from a distance by bashing their heads on them.</li>
-								<li>Owls reduce enemy energy and health by kamikazing into them.</li>
+								<li>Elephants heal weakened allies by spraying water over them.</li>
+								<li>Giraffes can hit enemies from a distance by bashing their heads on them.</li>
+								<li>Owls reduce enemy energy and health by recklessly charging into them.</li>
 								<li>Hippos bash their targets with enough force to push them back.</li>
 								<li>Monkeys throw tiny pebbles which stagger enemies, reducing their energy.</li>
 								<li>Zebras are basic soldiers with no special properties save numbers. </li>								
 								</ul>
 								</div>
 								
-								<button class="accordion" #href= "pro">Secondary goal: Basic AI Creation..</button>
+								<button class="accordion" #href= "pro">Secondary goal: Basic AI Creation.</button>
 								<div class="panel">
 								<p>
 								I built this game as a sort of side-project long before I made my <a href="Map.html">Artificial Intelligence </a> game so I had little to no knowledge of Pathfinding or using State Machines for AI. This meant that since the units couldn't decide on a path and follow it across multiple turns, they had to do things like determine their target and check if the tiles they wish to enter were empty every single turn.</p>
 								<p>								
-								So instead of creating an pathfinding system that was currently beyond my abilities, I decided to make the AI of each unit type as unique as possible, with specific goals that they will try to achieve during their turns. <br />
-								The best example is the elephant, who heals weakened allies. Ideally it would always heal the weakest ally, but it also wants to find one it can reach as quickly as possible.
+								So instead of creating a pathfinding system that was currently beyond my abilities, I decided to make the AI of each unit type as unique as possible, with specific goals that they will try to achieve during their turns. <br />
+								The best example is the elephant, who heals weakened allies. Ideally, it would always heal the weakest ally, but it also wants to find one it can reach as quickly as possible.
 								This is done by running a for loop through the army. The script first picks out the unit in the army with the lowest health remaining, and uses it as the target against which everything else is decided on.
 								From there, the loop checks every other animal in the allied array, using a combined value of their health and distance to determine if they're a higher priority target. <br />
 								Once the target has been decided, the elephant then uses its heal ability, or spends the rest of their turn moving until they're in range to do so.

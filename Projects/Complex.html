@@ -56,7 +56,7 @@
 							
 							<p>
 							I developed this project as a game exploring multiple complex game development aspects using AIE's bootstrap.
-							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but it's main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts, along with other features found in RPGs like like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
+							The project makes heavy use of fmod for dynamic music playing, and IMGUI for its interface, but its main goal is its automated combat cycle, which is developed and tweaked by players through the use .lua scripts, along with other features found in RPGs like speed calculation, progression, particles and music, implemented through fmod, which changes dynamically as the player gets closer to victory or defeat. </p>								
 									<p> All art and music used in this project was downloaded from opengameart. </p>
 								
 								<button class="accordion">Design</button>
@@ -73,19 +73,19 @@
 								<button class="accordion" #href= "pro">Programming, funnelling variables between C++ and .lua</button>
 								<div class="panel">
 								<p>
-								The creation of the lua script works in a fashion similar to writing an .xml save file. Simple variables are taken from IMGUI and then stored as C++ variables. When a write function is called, those variables are then printed the text file. <br />
+								The creation of the lua script works in a fashion similar to writing an .xml save file. Simple variables are taken from IMGUI and then stored as C++ variables. When a write function is called, those variables are then printed to the text file. <br />
 								As an example. When the lua file writes a function for selecting a target, it'll write the start of the function, "Target = FindTarget(", input two integers taken from C++, findHealth and FindHighLow, and then close the function with a ")".
 								</p>
 								
-								<h3>An indepth example: Checking if conditions are true. </h3>
-								<p>In this example a warrior is checking if it's health is below 30 for the purposes of deciding if it should use it's kamikaze attack. <br />
+								<h3>An in-depth example: Checking if conditions are true. </h3>
+								<p>In this example a warrior is checking if it's health is below 30 for the purposes of deciding if it should use its kamikaze attack. <br />
 								result = CheckCondition(2, 0, 0, 3, 1).</p>
 								<ul>
 								<li>The first variable is deciding what variable we'll be checking from a pre-determined list. 0 is the player's health, 1 is their souls, 2 is an enemy's health.</li>
 								<li>The second variable is a continuation of the first, determining who to check. 0 only has the unit check itself. 1 has the unit check the player. 2 has the unit check any enemy.</li>
 								<li>The third is a boolean for less or greater than. A 1 would indicate true, asking if greater than.</li>
 								<li>The fourth is the number the number the function will compare itself to. For simplicity's sake, since health is out of 100, it's multiplied by 10 before checking.							
-								<li> The fifth variable is used to specify if any checks involving "Me" Or "This", are the player or the enemy currently taking it's turn.</li>
+								<li> The fifth variable is used to specify if any checks involving "Me" Or "This", are the player or the enemy currently taking its turn.</li>
 								</ul>								
 								<p>If this function were to return 'nil', the condition fails, and the enemy tries another attack. if the ability succeeded, the game would return a 2, telling the function to end.</p>
 								<p>The function is just like one that could be created by the player, and would be generated in an iteration of a for loop that looks like this: <br />
